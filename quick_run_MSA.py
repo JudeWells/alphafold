@@ -1,3 +1,12 @@
+"""
+Before running better to run the following 2 shell commands:
+sudo mkdir -m 777 --parents /tmp/ramdisk
+sudo mount -t tmpfs -o size=9G ramdisk /tmp/ramdisk
+
+jackhmmer takes a parameter which is the number of iterations (default is 5) consider reducing this if possible
+
+"""
+
 # --- Python imports ---
 import collections
 import copy
@@ -61,8 +70,8 @@ sequences, model_type_to_use = notebook_utils.validate_input(
     max_length=MAX_SINGLE_SEQUENCE_LENGTH,
     max_multimer_length=MAX_MULTIMER_LENGTH)
 
-
-JACKHMMER_BINARY_PATH = '/usr/bin/jackhmmer'
+# note that you will probably need to change the jackhmmer binary path  (after installing jackhmmer with command: brew install hmmer)
+JACKHMMER_BINARY_PATH = '/usr/local/Cellar/hmmer/3.3.2/bin/jackhmmer'
 DB_ROOT_PATH = f'https://storage.googleapis.com/alphafold-colab-europe/latest/'
 # The z_value is the number of sequences in a database.
 MSA_DATABASES = [
