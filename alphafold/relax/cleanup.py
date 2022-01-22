@@ -19,9 +19,12 @@ cases like removing chains of length one (see clean_structure).
 """
 import io
 
-import pdbfixer
-from simtk.openmm import app
-from simtk.openmm.app import element
+try:
+  import pdbfixer
+  from simtk.openmm import app
+  from simtk.openmm.app import element
+except:
+  pass
 
 
 def fix_pdb(pdbfile, alterations_info):
